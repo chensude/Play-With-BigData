@@ -62,4 +62,76 @@ period参数表示，经过1小时就进行一次checkpoint，txns参数表示�
 </property >
 ```
 #### 4,HDFS客户端的操作
-
+4.1 对HdfsApi的调用
+``` 
+详情请参考代码 hdfs-practice
+```
+4.2 shell语法总结
+```
+基本语法
+bin/hadoop fs 具体命令   OR  bin/hdfs dfs 具体命令
+显示目录信息
+hadoop fs -ls /
+创建目录
+hadoop fs -mkdir -p /test
+从本地剪切粘贴到HDFS
+hadoop fs  -moveFromLocal  ./test.txt  /test
+追加一个文件到已经存在的文件末尾
+hadoop fs -appendToFile li.txt /test.txt  
+删除文件或文件夹
+hadoop fs -rm /test.txt
+设置HDFS中文件的副本数量（只有机器达到10台副本数量才会生效）
+hadoop fs -setrep 10 /san.txt
+其他命令：-cp -mv -tail 等等和Linux命令同意
+```
+#### 5,Hdfs读写文件
+##### 我们这里重点看两张图  
+写流程：
+![写流程图](../doc/img/hdfs-write.jpg)
+读流程
+![写流程图](../doc/img/hdfs-read.png)
+挑选一台DataNode（就近原则，然后随机）服务器，请求读取数据。
+#### 6,DataNode
+##### 6.1 DataNode工作机制  
+```
+1）一个数据块在DataNode上以文件形式存储在磁盘上，包括两个文件，一个是数据本身，一个是元数据包括数据块的长度，块数据的校验和，以及时间戳。
+2）DataNode启动后向NameNode注册，通过后，周期性（1小时）的向NameNode上报所有的块信息。
+3）心跳是每3秒一次，心跳返回结果带有NameNode给该DataNode的命令如复制块数据到另一台机器，或删除某个数据块。如果超过10分钟没有收到某个DataNode的心跳，则认为该节点不可用。
+4）集群运行中可以安全加入和退出一些机器。
+```
+##### 6.2 DataNode掉线参数设置
+```
+需要注意的是hdfs-site.xml 配置文件中的heartbeat.recheck.interval的单位为毫秒，dfs.heartbeat.interval的单位为秒。
+计算公式：TimeOut = 2*dfs.namenode.heartbeat.recheck-interval+10*dfs.heartbeat.interval
+<property>
+    <name>dfs.namenode.heartbeat.recheck-interval</name>
+    <value>300000</value>
+</property>
+<property>
+    <name>dfs.heartbeat.interval</name>
+    <value>3</value>
+</property>
+```
+##### 6.3 支持新节点DataNode
+##### 6.4 设置参数退役就数据节点
+```
+添加白名单/黑名单
+黑名单配置
+<property>
+<name>dfs.hosts.exclude</name>
+      <value>/opt/module/hadoop-2.7.2/etc/hadoop/dfs.hosts.exclude</value>
+</property>
+白名单配置
+<property>
+<name>dfs.hosts</name>
+<value>/opt/module/hadoop-2.7.2/etc/hadoop/dfs.hosts</value>
+</property>
+xsync hdfs-site.xml
+刷新NameNode
+hdfs dfsadmin -refreshNodes
+更新ResourceManager节点
+yarn rmadmin -refreshNodes
+实现集群的数据再平衡
+./start-balancer.sh
+注意：不允许白名单和黑名单中同时出现同一个主机名称。
+```
