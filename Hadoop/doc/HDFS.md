@@ -13,7 +13,7 @@ HDFS(Hadoop Distribute File System),是一个分布式文件系统。应用场�
 ```
 #### 2,HDFS的组织架构
 
-![hdfs架构图](../doc/img/hdfs.jpg1)
+![hdfs架构图](../doc/img/hdfs.jpg)
 ```
 从图中大概可以看出几个重要角色
 Namenode：
@@ -34,7 +34,7 @@ HDFS启动时会从Fsimge文件中读取当前metadata，之后对HDFS的操作�
 ```
 如何更新内存中的metadata？
 这时候就要用到checkPoint机制，我们来看下面图片：
-![checkPoint图](../doc/img/checkPoint.jpg1)
+![checkPoint图](../doc/img/checkPoint.jpg)
 ```
 如果HDFS没有做HA的话，checkpoint由SecondaryNameNode进程来进行。
 在HA模式下，checkpoint则由StandBy状态的NameNode来进行。
