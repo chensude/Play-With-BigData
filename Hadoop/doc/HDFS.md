@@ -86,10 +86,10 @@ hadoop fs -setrep 10 /san.txt
 ```
 #### 5,Hdfs读写文件
 ##### 我们这里重点看两张图  
-写流程：
+###### 写流程
 ![写流程图](../doc/img/hdfs-write.jpg)
-读流程
-![写流程图](../doc/img/hdfs-read.png)
+###### 读流程
+![读流程图](../doc/img/hdfs-read.png)
 挑选一台DataNode（就近原则，然后随机）服务器，请求读取数据。
 #### 6,DataNode
 ##### 6.1 DataNode工作机制  
