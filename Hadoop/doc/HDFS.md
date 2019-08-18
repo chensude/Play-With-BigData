@@ -226,6 +226,7 @@ HA，即高可用，HDFS的高可用，主要是是NameNode的热备。
 |ZK|ZK|ZK|
 |  |ResourceManager|  |
 |NodeManager|NodeManager|NodeManager|
+
 8.3 配置Zookeeper集群
 ```
 1.集群规划
