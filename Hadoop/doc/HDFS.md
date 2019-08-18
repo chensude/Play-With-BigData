@@ -177,7 +177,7 @@ trash.moveToTrash(path);
 * 恢复回收站数据
 ```
 hadoop fs -mv
-/user/atguigu/.Trash/Current/user/chensude/input    /user/chensude/input
+/user/.Trash/Current/user/chensude/input    /user/chensude/input
 ```
 * 清空回收站
 ```
@@ -200,7 +200,7 @@ hdfs dfs -renameSnapshot /user/input/  miao2019 csd2019
 hdfs lsSnapshottableDir
 6）比较两个快照目录的不同之处
 hdfs snapshotDiff
- /user/atguigu/input/  .  .snapshot/atguigu170508	
+ /user/input/  .  .snapshot/csd170508	
 7）恢复快照
 hdfs dfs -cp
 /user/input/.snapshot/s20170708-134303.027 /user
@@ -329,7 +329,7 @@ bin/zkServer.sh start
 	<!-- 使用隔离机制时需要ssh无秘钥登录-->
 	<property>
 		<name>dfs.ha.fencing.ssh.private-key-files</name>
-		<value>/home/atguigu/.ssh/id_rsa</value>
+		<value>/home/.ssh/id_rsa</value>
 	</property>
 
 	<!-- 声明journalnode服务器存储目录-->
