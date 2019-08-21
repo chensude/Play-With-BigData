@@ -2,19 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b81365bc-4582-487d-9e88-c2c8d64554e4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../doc/img/combine.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../doc/img/job.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../doc/img/mr1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../doc/img/mr2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../doc/img/shuffle.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../doc/img/sort.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/word-count/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/word-count/src/main/java/com/yt/wordcount/WordCountDriver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/word-count/src/main/java/com/yt/wordcount/WordCountMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/word-count/src/main/java/com/yt/wordcount/WordCountReducer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/word-count/src/main/resources/logger4j.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../doc/MapReduce.md" beforeDir="false" afterPath="$PROJECT_DIR$/../doc/MapReduce.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/word-count/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,15 +16,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/word-count/src/main/java/com/yt/wordcount/WordCountMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/word-count/src/main/java/com/yt/wordcount/WordCountDriver.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -47,7 +29,7 @@
         <entry file="jar://$USER_HOME$/dev/repMaven/org/apache/hadoop/hadoop-mapreduce-client-core/2.7.2/hadoop-mapreduce-client-core-2.7.2-sources.jar!/org/apache/hadoop/mapred/lib/HashPartitioner.java">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret line="16" column="3" lean-forward="true" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
+              <caret line="16" column="3" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -94,41 +76,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/dev/repMaven/org/apache/hadoop/hadoop-common/2.7.2/hadoop-common-2.7.2.jar!/org/apache/hadoop/conf/Configuration.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="638" column="53" selection-start-line="638" selection-start-column="44" selection-end-line="638" selection-end-column="53" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/dev/repMaven/org/apache/hadoop/hadoop-mapreduce-client-core/2.7.2/hadoop-mapreduce-client-core-2.7.2-sources.jar!/org/apache/hadoop/mapred/JobConf.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-10">
-              <caret line="1042" column="26" selection-start-line="1042" selection-start-column="26" selection-end-line="1042" selection-end-column="26" />
-              <folding>
-                <element signature="e#36309#36310#0" expanded="true" />
-                <element signature="e#36368#36369#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/dev/repMaven/org/apache/hadoop/hadoop-mapreduce-client-core/2.7.2/hadoop-mapreduce-client-core-2.7.2-sources.jar!/org/apache/hadoop/mapreduce/Cluster.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="730">
-              <caret line="161" column="70" lean-forward="true" selection-start-line="161" selection-start-column="27" selection-end-line="161" selection-end-column="70" />
-              <folding>
-                <element signature="e#5666#5667#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -143,6 +98,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/word-count/src/main/java/com/yt/wordcount/WordCountDriver.java" />
+        <option value="$PROJECT_DIR$/word-count/src/main/java/com/yt/wordcount/Main.java" />
+        <option value="$PROJECT_DIR$/word-count/src/main/java/com/yt/wordcount/Solution.java" />
+        <option value="$PROJECT_DIR$/word-count/src/main/java/com/yt/wordcount/ListNode.java" />
       </list>
     </option>
   </component>
@@ -161,7 +119,7 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="43" />
+    <option name="x" value="132" />
     <option name="y" value="-1054" />
     <option name="width" value="1680" />
     <option name="height" value="962" />
@@ -226,7 +184,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566289409133" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566292496242" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -257,15 +215,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1566264336508</updated>
-      <workItem from="1566264338018" duration="7726000" />
+      <workItem from="1566264338018" duration="8371000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7726000" />
+    <option name="totallyTimeSpent" value="8371000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="43" y="-1054" width="1680" height="962" extended-state="0" />
+    <frame x="132" y="-1054" width="1680" height="962" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49489796" visible="true" weight="0.21309523" />
@@ -322,7 +280,7 @@
     <entry file="jar://$USER_HOME$/dev/repMaven/org/apache/hadoop/hadoop-mapreduce-client-core/2.7.2/hadoop-mapreduce-client-core-2.7.2-sources.jar!/org/apache/hadoop/mapreduce/Cluster.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="730">
-          <caret line="161" column="70" lean-forward="true" selection-start-line="161" selection-start-column="27" selection-end-line="161" selection-end-column="70" />
+          <caret line="161" column="70" selection-start-line="161" selection-start-column="27" selection-end-line="161" selection-end-column="70" />
           <folding>
             <element signature="e#5666#5667#0" expanded="true" />
           </folding>
@@ -391,7 +349,21 @@
     <entry file="jar://$USER_HOME$/dev/repMaven/org/apache/hadoop/hadoop-mapreduce-client-core/2.7.2/hadoop-mapreduce-client-core-2.7.2-sources.jar!/org/apache/hadoop/mapred/lib/HashPartitioner.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret line="16" column="3" lean-forward="true" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
+          <caret line="16" column="3" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/word-count/src/main/java/com/yt/wordcount/ListNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/word-count/src/main/java/com/yt/wordcount/Solution.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="13" column="5" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
         </state>
       </provider>
     </entry>
