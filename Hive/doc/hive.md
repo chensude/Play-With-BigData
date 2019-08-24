@@ -250,4 +250,246 @@ SerDe是Serialize/Deserilize的简称，目的是用于序列化和反序列化�
 如果文件数据是纯文本，可以使用STORED AS TEXTFILE。如果数据需要压缩，使用 STORED AS SEQUENCEFILE。
 * 9）LOCATION ：指定表在HDFS上的存储位置。
 * 10）LIKE允许用户复制现有的表结构，但是不复制数据。
+参考：
+```
+create external table if not exists default.dept(
+deptno int,
+dname string,
+loc int
+)
+partitioned by (month string)
+row format delimited fields terminated by '\t';
 
+load data local inpath '/opt/module/datas/dept.txt' into table default.dept_partition partition(month='201709');
+load data local inpath '/opt/module/datas/dept.txt' into table default.dept;
+修改内部表student2为外部表
+注意：('EXTERNAL'='TRUE')和('EXTERNAL'='FALSE')为固定写法，区分大小写！
+alter table student2 set tblproperties('EXTERNAL'='TRUE');
+```
+3.5 修改表<br/>
+* 1．语法<br/>
+更新列
+ALTER TABLE table_name CHANGE [COLUMN] col_old_name col_new_name column_type [COMMENT col_comment] [FIRST|AFTER column_name]
+* 增加和替换列
+ALTER TABLE table_name ADD|REPLACE COLUMNS (col_name data_type [COMMENT col_comment], ...) 
+注：ADD是代表新增一字段，字段位置在所有列后面(partition列前)，REPLACE则是表示替换表中所有字段。<br/>
+3.6 删除表
+```
+drop table dept_partition;
+```
+#### 4,DML数据操作
+4.1 导入数据
+```
+1．语法
+hive> load data [local] inpath '/opt/module/datas/student.txt' overwrite | into table student [partition (partcol1=val1,…)];
+（1）load data:表示加载数据
+（2）local:表示从本地加载数据到hive表；否则从HDFS加载数据到hive表
+（3）inpath:表示加载数据的路径
+（4）overwrite:表示覆盖表中已有数据，否则表示追加
+（5）into table:表示加载到哪张表
+（6）student:表示具体的表
+（7）partition:表示上传到指定分区
+```
+4.2 导出数据
+```
+4.2.1 Insert导出
+1．将查询的结果导出到本地
+insert overwrite local directory '/opt/module/datas/export/student' select * from student;
+2．将查询的结果格式化导出到本地
+insert overwrite local directory '/opt/module/datas/export/student1' ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'             select * from student;
+3．将查询的结果导出到HDFS上(没有local)
+hiveinsert overwrite directory '/user/atguigu/student2'
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' select * from student;
+4.2.2 Hadoop命令导出到本地
+dfs -get /user/hive/warehouse/student/month=201709/000000_0
+/opt/module/datas/export/student3.txt;
+4.2.3 Hive Shell 命令导出
+基本语法：（hive -f/-e 执行语句或者脚本 > file）
+bin/hive -e 'select * from default.student;' > /opt/module/datas/export/student4.txt;
+4.2.4 Export导出到HDFS上
+export table default.student to '/user/hive/warehouse/export/student';
+4.2.5 Sqoop导出
+后续课程专门讲。
+4.3 清除表中数据（Truncate）
+注意：Truncate只能删除管理表，不能删除外部表中数据
+truncate table student;
+```
+
+#### 5,查询
+查询的语句和mysql有点相似，这里只说不同的地方
+```
+注意，Hive要求DISTRIBUTE BY语句要写在SORT BY语句之前。
+对于distribute by进行测试，一定要分配多reduce进行处理，否则无法看到distribute by的效果。
+案例实操：
+先按照部门编号分区，再按照员工编号降序排序。
+hive (default)> set mapreduce.job.reduces=3;
+hive (default)> insert overwrite local directory '/opt/module/datas/distribute-result' select * from emp distribute by deptno sort by empno desc;
+当distribute by和sorts by字段相同时，可以使用cluster by方式。
+分桶表数据存储
+分区针对的是数据的存储路径；分桶针对的是数据文件。
+对于非常大的数据集，有时用户需要使用的是一个具有代表性的查询结果而不是全部结果。Hive可以通过对表进行抽样来满足这个需求。
+查询表stu_buck中的数据。
+select * from stu_buck tablesample(bucket 1 out of 4 on id);
+注：tablesample是抽样语句，语法：TABLESAMPLE(BUCKET x OUT OF y) 。
+y必须是table总bucket数的倍数或者因子。hive根据y的大小，决定抽样的比例。例如，table总共分了4份，当y=2时，抽取(4/2=)2个bucket的数据，当y=8时，抽取(4/8=)1/2个bucket的数据。
+x表示从哪个bucket开始抽取，如果需要取多个分区，以后的分区号为当前分区号加上y。例如，table总bucket数为4，tablesample(bucket 1 out of 2)，表示总共抽取（4/2=）2个bucket的数据，抽取第1(x)个和第3(x+y)个bucket的数据。
+注意：x的值必须小于等于y的值，否则
+```
+几个常用的函数
+```
+select nvl(comm,-1) from emp;
+select 
+  dept_id,
+  sum(case sex when '男' then 1 else 0 end) male_count,
+  sum(case sex when '女' then 1 else 0 end) female_count
+from 
+  emp_sex
+group by
+  dept_id;
+CONCAT(string A/col, string B/col…)：返回输入字符串连接后的结果，支持任意个输入字符串;
+CONCAT_WS(separator, str1, str2,...)：它是一个特殊形式的 CONCAT()。
+1．函数说明
+EXPLODE(col)：将hive一列中复杂的array或者map结构拆分成多行。
+LATERAL VIEW
+用法：LATERAL VIEW udtf(expression) tableAlias AS columnAlias
+解释：用于和split, explode等UDTF一起使用，它能够将一列数据拆成多行数据，在此基础上可以对拆分后的数据进行聚合。
+select
+    movie,
+    category_name
+from 
+    movie_info lateral view explode(category) table_tmp as category_name;
+    
+窗口函数
+1．相关函数说明
+OVER()：指定分析函数工作的数据窗口大小，这个数据窗口大小可能会随着行的变而变化
+CURRENT ROW：当前行
+n PRECEDING：往前n行数据
+n FOLLOWING：往后n行数据
+UNBOUNDED：起点，UNBOUNDED PRECEDING 表示从前面的起点， UNBOUNDED FOLLOWING表示到后面的终点
+LAG(col,n)：往前第n行数据
+LEAD(col,n)：往后第n行数据
+NTILE(n)：把有序分区中的行分发到指定数据的组中，各个组有编号，编号从1开始，对于每一行，NTILE返回此行所属的组的编号。注意：n必须为int类型
+select name,orderdate,cost, 
+sum(cost) over() as sample1,--所有行相加 
+sum(cost) over(partition by name) as sample2,--按name分组，组内数据相加 
+sum(cost) over(partition by name order by orderdate) as sample3,--按name分组，组内数据累加 
+sum(cost) over(partition by name order by orderdate rows between UNBOUNDED PRECEDING and current row ) as sample4 ,--和sample3一样,由起点到当前行的聚合 
+sum(cost) over(partition by name order by orderdate rows between 1 PRECEDING and current row) as sample5, --当前行和前面一行做聚合 
+sum(cost) over(partition by name order by orderdate rows between 1 PRECEDING AND 1 FOLLOWING ) as sample6,--当前行和前边一行及后面一行 
+sum(cost) over(partition by name order by orderdate rows between current row and UNBOUNDED FOLLOWING ) as sample7 --当前行及后面所有行 
+from business;
+（4）查看顾客上次的购买时间
+select name,orderdate,cost, 
+lag(orderdate,1,'1900-01-01') over(partition by name order by orderdate ) as time1, lag(orderdate,2) over (partition by name order by orderdate) as time2 
+from business;
+ Rank
+1．函数说明
+RANK() 排序相同时会重复，总数不会变
+DENSE_RANK() 排序相同时会重复，总数会减少
+ROW_NUMBER() 会根据顺序计算
+select name,
+subject,
+score,
+rank() over(partition by subject order by score desc) rp,
+dense_rank() over(partition by subject order by score desc) drp,
+row_number() over(partition by subject order by score desc) rmp
+from score;
+```
+6,压缩和存储
+在Hadoop配置好压缩参数后，Hiveshell端开启压缩，Map端压缩和Reduce端压缩
+```
+1．开启hive最终输出数据压缩功能
+hive (default)>set hive.exec.compress.output=true;
+2．开启mapreduce最终输出数据压缩
+hive (default)>set mapreduce.output.fileoutputformat.compress=true;
+3．设置mapreduce最终数据输出压缩方式
+hive (default)> set mapreduce.output.fileoutputformat.compress.codec =
+ org.apache.hadoop.io.compress.SnappyCodec;
+4．设置mapreduce最终数据输出压缩为块压缩
+hive (default)> set mapreduce.output.fileoutputformat.compress.type=BLOCK;
+5．测试一下输出结果是否是压缩文件
+hive (default)> insert overwrite local directory
+'/opt/module/datas/distribute-result' select * from emp distribute by deptno sort by empno desc;
+```
+文件存储
+Hive支持的存储数的格式有：TEXTFILE 、SEQUENCEFILE、ORC、PARQUET。
+```
+TEXTFILE和SEQUENCEFILE的存储格式都是基于行存储的；
+ORC和PARQUET是基于列式存储的。
+TextFile格式
+默认格式，数据不做压缩，磁盘开销大，数据解析开销大。可结合Gzip、Bzip2使用，但使用Gzip这种方式，hive不会对数据进行切分，从而无法对数据进行并行操作
+Parquet格式
+Parquet是面向分析型业务的列式存储格式，由Twitter和Cloudera合作开发，2015年5月从Apache的孵化器里毕业成为Apache顶级项目。
+Parquet文件是以二进制方式存储的，所以是不可以直接读取的，文件中包括该文件的数据和元数据，因此Parquet格式文件是自解析的。
+通常情况下，在存储Parquet数据的时候会按照Block大小设置行组的大小，由于一般情况下每一个Mapper任务处理数据的最小单位是一个Block，这样可以把每一个行组由一个Mapper任务处理，增大任务执行并行度。
+存储文件的压缩比总结：
+ORC >  Parquet >  textFile
+在实际的项目开发当中，hive表的数据存储格式一般选择：orc或parquet。压缩方式一般选择snappy，lzo。
+```
+#### 8,企业调优
+8.1 fetch抓取
+Hive中对某些情况的查询可以不必使用
+MapReduce计算。例如：SELECT * FROM employees;
+在hive-default.xml.template文件中hive.fetch.task.conversion默认是more，老版本hive默认是minimal，
+该属性修改为more以后，在全局查找、字段查找、limit查找等都不走mapreduce。
+```
+<property>
+    <name>hive.fetch.task.conversion</name>
+    <value>more</value>
+    <description>
+      Expects one of [none, minimal, more].
+      Some select queries can be converted to single FETCH task minimizing latency.
+      Currently the query should be single sourced not having any subquery and should not have
+      any aggregations or distincts (which incurs RS), lateral views and joins.
+      0. none : disable hive.fetch.task.conversion
+      1. minimal : SELECT STAR, FILTER on partition columns, LIMIT only
+      2. more  : SELECT, FILTER, LIMIT only (support TABLESAMPLE and virtual columns)
+    </description>
+  </property>
+```
+8.2 本地模式<br/>
+Hive可以通过本地模式在单台机器上处理所有的任务。对于小数据集，执行时间可以明显被缩短。
+```
+set hive.exec.mode.local.auto=true;  //开启本地mr
+//设置local mr的最大输入数据量，当输入数据量小于这个值时采用local  mr的方式，默认为134217728，即128M
+set hive.exec.mode.local.auto.inputbytes.max=50000000;
+//设置local mr的最大输入文件个数，当输入文件个数小于这个值时采用local mr的方式，默认为4
+set hive.exec.mode.local.auto.input.files.max=10;
+```
+8.3 JVM重用
+JVM重用可以使得JVM实例在同一个job中重新使用N次。缺点是job中ReduceTask消耗时间多的任务会占用插槽
+```
+N的值可以在Hadoop的mapred-site.xml文件中进行配置。通常在10-20之间，具体多少需要根据具体业务场景测试得出。
+<property>
+  <name>mapreduce.job.jvm.numtasks</name>
+  <value>10</value>
+  <description>How many tasks to run per jvm. If set to -1, there is
+  no limit. 
+  </description>
+</property>
+```
+8.4 严格模式<br/>
+1,对于分区表，除非where语句中含有分区字段过滤条件来限制范围，否则不允许执行。<br/>
+2,对于使用了order by语句的查询，要求必须使用limit语句<br/>
+3,限制笛卡尔积的查询。
+```
+<property>
+    <name>hive.mapred.mode</name>
+    <value>strict</value>
+    <description>
+      The mode in which the Hive operations are being performed. 
+      In strict mode, some risky queries are not allowed to run. They include:
+        Cartesian Product.
+        No partition being picked up for a query.
+        Comparing bigints and strings.
+        Comparing bigints and doubles.
+        Orderby without limit.
+</description>
+</property>
+```
+8.5 并行执行
+```
+通过设置参数hive.exec.parallel值为true，就可以开启并发执行。不过，在共享集群中，需要注意下，如果job中并行阶段增多，那么集群利用率就会增加。
+set hive.exec.parallel=true;              //打开任务并行执行
+set hive.exec.parallel.thread.number=16;  //同一个sql允许最大并行度，默认为8。
+```
