@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2dccf1d2-83dd-43e9-af2b-7785f60dde3d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Kafka/kafka-practice/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Kafka/kafka-practice/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Kafka/kafka-practice/src/main/java/com/yt/produce/CallBackProducer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Kafka/kafka-practice/src/main/java/com/yt/produce/CustomerPartition.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Kafka/kafka-practice/src/main/java/com/yt/produce/NewProducer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Kafka/kafka-practice/src/main/java/com/yt/produce/PartitionProducer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Zookeeper/doc/img/listener.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Zookeeper/doc/img/write.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Zookeeper/doc/img/zookeeper-stat.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Zookeeper/doc/zookeeper.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Zookeeper/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,11 +18,11 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Kafka/README.md">
+        <entry file="file://$PROJECT_DIR$/Zookeeper/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="176">
-                <caret line="8" selection-start-line="8" selection-end-line="8" />
+              <first_editor>
+                <caret column="15" selection-start-column="15" selection-end-column="15" />
               </first_editor>
               <second_editor />
             </state>
@@ -31,11 +30,11 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Kafka/doc/kafka.md">
+        <entry file="file://$PROJECT_DIR$/Zookeeper/doc/zookeeper.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="4410">
-                <caret line="351" column="79" selection-start-line="351" selection-start-column="79" selection-end-line="351" selection-end-column="79" />
+              <first_editor relative-caret-position="52">
+                <caret line="4" column="51" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
               </first_editor>
               <second_editor />
             </state>
@@ -49,6 +48,7 @@
       <find>/atguigu</find>
       <find>atguigu</find>
       <find>hadoop</find>
+      <find>atgui</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -66,6 +66,8 @@
         <option value="$PROJECT_DIR$/Hive/doc/hive.md" />
         <option value="$PROJECT_DIR$/Kafka/README.md" />
         <option value="$PROJECT_DIR$/Kafka/doc/kafka.md" />
+        <option value="$PROJECT_DIR$/Zookeeper/README.md" />
+        <option value="$PROJECT_DIR$/Zookeeper/doc/zookeeper.md" />
       </list>
     </option>
   </component>
@@ -108,6 +110,24 @@
               <item name="Play-With-BigData" type="462c0819:PsiDirectoryNode" />
               <item name="Kafka" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Play-With-BigData" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Play-With-BigData" type="462c0819:PsiDirectoryNode" />
+              <item name="Zookeeper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Play-With-BigData" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Play-With-BigData" type="462c0819:PsiDirectoryNode" />
+              <item name="Zookeeper" type="462c0819:PsiDirectoryNode" />
+              <item name="doc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Play-With-BigData" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Play-With-BigData" type="462c0819:PsiDirectoryNode" />
+              <item name="Zookeeper" type="462c0819:PsiDirectoryNode" />
+              <item name="doc" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -117,7 +137,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566803850451" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566810460667" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -128,10 +148,12 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Zookeeper/doc/img" />
       <recent name="$PROJECT_DIR$/Kafka/doc/img" />
       <recent name="$PROJECT_DIR$/Hadoop/doc/img" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Zookeeper/doc/img" />
       <recent name="$PROJECT_DIR$/Kafka/doc/img" />
       <recent name="$PROJECT_DIR$/Kafka/doc" />
       <recent name="$PROJECT_DIR$/Hadoop/doc" />
@@ -170,15 +192,16 @@
       <workItem from="1566522040700" duration="1898000" />
       <workItem from="1566539394534" duration="5001000" />
       <workItem from="1566619969387" duration="5337000" />
-      <workItem from="1566790305878" duration="4999000" />
+      <workItem from="1566790305878" duration="6921000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72839000" />
+    <option name="totallyTimeSpent" value="74761000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="81" y="-1051" width="1680" height="962" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49489796" visible="true" weight="0.225" />
       <window_info id="Structure" order="1" sideWeight="0.5049505" side_tool="true" weight="0.18017058" />
@@ -201,7 +224,7 @@
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" weight="0.32962137" />
-      <window_info anchor="bottom" id="Terminal" order="13" sideWeight="0.49946696" visible="true" weight="0.34447005" />
+      <window_info anchor="bottom" id="Terminal" order="13" sideWeight="0.49946696" visible="true" weight="0.22235022" />
       <window_info anchor="bottom" id="Docker" order="14" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -320,21 +343,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Kafka/README.md">
+    <entry file="file://$PROJECT_DIR$/Kafka/doc/kafka.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="176">
-            <caret line="8" selection-start-line="8" selection-end-line="8" />
+          <first_editor relative-caret-position="4416">
+            <caret line="351" column="79" selection-start-line="351" selection-start-column="79" selection-end-line="351" selection-end-column="79" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Kafka/doc/kafka.md">
+    <entry file="file://$PROJECT_DIR$/Kafka/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="4410">
-            <caret line="351" column="79" selection-start-line="351" selection-start-column="79" selection-end-line="351" selection-end-column="79" />
+          <first_editor relative-caret-position="44">
+            <caret line="2" lean-forward="true" selection-end-line="6" selection-end-column="3" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Zookeeper/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor>
+            <caret column="15" selection-start-column="15" selection-end-column="15" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Zookeeper/doc/zookeeper.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="52">
+            <caret line="4" column="51" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
           </first_editor>
           <second_editor />
         </state>
