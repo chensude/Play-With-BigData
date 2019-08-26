@@ -492,4 +492,5 @@ N的值可以在Hadoop的mapred-site.xml文件中进行配置。通常在10-20�
 通过设置参数hive.exec.parallel值为true，就可以开启并发执行。不过，在共享集群中，需要注意下，如果job中并行阶段增多，那么集群利用率就会增加。
 set hive.exec.parallel=true;              //打开任务并行执行
 set hive.exec.parallel.thread.number=16;  //同一个sql允许最大并行度，默认为8。
+在每台服务器上执行：ntpdate asia.pool.ntp.org    同步所有的服务器的时间
 ```
