@@ -2,14 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2dccf1d2-83dd-43e9-af2b-7785f60dde3d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Kafka/doc/img/kafka-group.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Kafka/doc/img/kafka-work.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Kafka/doc/img/kafka.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Kafka/doc/img/partition.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Kafka/doc/kafka.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Kafka/kafka-practice/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Kafka/kafka-practice/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Kafka/kafka-practice/src/main/java/com/yt/produce/CallBackProducer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Kafka/kafka-practice/src/main/java/com/yt/produce/CustomerPartition.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Kafka/kafka-practice/src/main/java/com/yt/produce/NewProducer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Kafka/kafka-practice/src/main/java/com/yt/produce/PartitionProducer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hive/doc/hive.md" beforeDir="false" afterPath="$PROJECT_DIR$/Hive/doc/hive.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kafka/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Kafka/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,7 +23,7 @@
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
               <first_editor relative-caret-position="176">
-                <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+                <caret line="8" selection-start-line="8" selection-end-line="8" />
               </first_editor>
               <second_editor />
             </state>
@@ -35,8 +34,8 @@
         <entry file="file://$PROJECT_DIR$/Kafka/doc/kafka.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="381">
-                <caret line="247" lean-forward="true" selection-start-line="247" selection-end-line="247" />
+              <first_editor relative-caret-position="4410">
+                <caret line="351" column="79" selection-start-line="351" selection-start-column="79" selection-end-line="351" selection-end-column="79" />
               </first_editor>
               <second_editor />
             </state>
@@ -109,24 +108,6 @@
               <item name="Play-With-BigData" type="462c0819:PsiDirectoryNode" />
               <item name="Kafka" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Play-With-BigData" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Play-With-BigData" type="462c0819:PsiDirectoryNode" />
-              <item name="Kafka" type="462c0819:PsiDirectoryNode" />
-              <item name="doc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Play-With-BigData" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Play-With-BigData" type="462c0819:PsiDirectoryNode" />
-              <item name="Kafka" type="462c0819:PsiDirectoryNode" />
-              <item name="doc" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Play-With-BigData" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Play-With-BigData" type="462c0819:PsiDirectoryNode" />
-              <item name="推荐系统" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -136,7 +117,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566802728635" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566803850451" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -189,18 +170,17 @@
       <workItem from="1566522040700" duration="1898000" />
       <workItem from="1566539394534" duration="5001000" />
       <workItem from="1566619969387" duration="5337000" />
-      <workItem from="1566790305878" duration="4029000" />
+      <workItem from="1566790305878" duration="4999000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71869000" />
+    <option name="totallyTimeSpent" value="72839000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="81" y="-1051" width="1680" height="962" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49489796" visible="true" weight="0.225" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49489796" visible="true" weight="0.225" />
       <window_info id="Structure" order="1" sideWeight="0.5049505" side_tool="true" weight="0.18017058" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -221,7 +201,7 @@
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" weight="0.32962137" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="13" sideWeight="0.49946696" visible="true" weight="0.34447005" />
+      <window_info anchor="bottom" id="Terminal" order="13" sideWeight="0.49946696" visible="true" weight="0.34447005" />
       <window_info anchor="bottom" id="Docker" order="14" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -344,7 +324,7 @@
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="176">
-            <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+            <caret line="8" selection-start-line="8" selection-end-line="8" />
           </first_editor>
           <second_editor />
         </state>
@@ -353,8 +333,8 @@
     <entry file="file://$PROJECT_DIR$/Kafka/doc/kafka.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="381">
-            <caret line="247" lean-forward="true" selection-start-line="247" selection-end-line="247" />
+          <first_editor relative-caret-position="4410">
+            <caret line="351" column="79" selection-start-line="351" selection-start-column="79" selection-end-line="351" selection-end-column="79" />
           </first_editor>
           <second_editor />
         </state>
